@@ -2832,33 +2832,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"POC_Tangem_RN@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "POC_Tangem_RN@workspace:."
-  dependencies:
-    "@babel/core": ^7.25.2
-    "@babel/preset-env": ^7.25.3
-    "@babel/runtime": ^7.25.0
-    "@react-native-community/cli": 15.0.0-alpha.2
-    "@react-native-community/cli-platform-android": 15.0.0-alpha.2
-    "@react-native-community/cli-platform-ios": 15.0.0-alpha.2
-    "@react-native/babel-preset": 0.76.0
-    "@react-native/eslint-config": 0.76.0
-    "@react-native/metro-config": 0.76.0
-    "@react-native/typescript-config": 0.76.0
-    "@types/react": ^18.2.6
-    "@types/react-test-renderer": ^18.0.0
-    babel-jest: ^29.6.3
-    eslint: ^8.19.0
-    jest: ^29.6.3
-    prettier: 2.8.8
-    react: 18.3.1
-    react-native: 0.76.0
-    react-test-renderer: 18.3.1
-    typescript: 5.0.4
-  languageName: unknown
-  linkType: soft
-
 "abbrev@npm:^2.0.0":
   version: 2.0.0
   resolution: "abbrev@npm:2.0.0"
@@ -7628,6 +7601,33 @@ __metadata:
   checksum: 9863e3f35132bf99ae1636d31ff1e1e3501251d480336edb1c211133c8d58906bed80f154a1d723652df1fda91e01c7442c2eeaf9dc83157c7ae89087e43c8d6
   languageName: node
   linkType: hard
+
+"poc_tangem_rn@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "poc_tangem_rn@workspace:."
+  dependencies:
+    "@babel/core": ^7.25.2
+    "@babel/preset-env": ^7.25.3
+    "@babel/runtime": ^7.25.0
+    "@react-native-community/cli": 15.0.0-alpha.2
+    "@react-native-community/cli-platform-android": 15.0.0-alpha.2
+    "@react-native-community/cli-platform-ios": 15.0.0-alpha.2
+    "@react-native/babel-preset": 0.76.0
+    "@react-native/eslint-config": 0.76.0
+    "@react-native/metro-config": 0.76.0
+    "@react-native/typescript-config": 0.76.0
+    "@types/react": ^18.2.6
+    "@types/react-test-renderer": ^18.0.0
+    babel-jest: ^29.6.3
+    eslint: ^8.19.0
+    jest: ^29.6.3
+    prettier: 2.8.8
+    react: 18.3.1
+    react-native: 0.76.0
+    react-test-renderer: 18.3.1
+    typescript: 5.0.4
+  languageName: unknown
+  linkType: soft
 
 "possible-typed-array-names@npm:^1.0.0":
   version: 1.0.0

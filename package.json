@@ -1,5 +1,5 @@
 {
-  "name": "POC_Tangem_RN",
+  "name": "poc_tangem_rn",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,6 +8,11 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest"
+  },
+  "codegenConfig": {
+    "name": "NativeModules",
+    "type": "modules",
+    "jsSrcsDir": "src/specs"
   },
   "dependencies": {
     "react": "18.3.1",

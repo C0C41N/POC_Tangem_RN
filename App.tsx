@@ -2,6 +2,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar, Button, View, ViewStyle} from 'react-native';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import NativeTangemSdk from './src/specs/NativeTangemSdk';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -17,6 +18,13 @@ function App(): React.JSX.Element {
     alignItems: 'center',
   };
 
+  const scanPressed = async () => {
+    console.log('Before native call');
+    const result = await NativeTangemSdk.scan();
+    console.log('Result:', result);
+    console.log('After native call');
+  };
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -24,7 +32,7 @@ function App(): React.JSX.Element {
         backgroundColor={isDarkMode ? Colors.darker : Colors.lighter}
       />
       <View style={containerStyle}>
-        <Button title="Scan" onPress={() => console.log('Scan pressed')} />
+        <Button title="Scan" onPress={() => scanPressed()} />
         <Button title="Sign" onPress={() => console.log('Sign pressed')} />
       </View>
     </SafeAreaView>

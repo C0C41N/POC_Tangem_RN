@@ -17,6 +17,7 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		E393CC822CCA58F400C2B4F0 /* RCTTangemSdk.mm in Sources */ = {isa = PBXBuildFile; fileRef = E393CC812CCA58F400C2B4F0 /* RCTTangemSdk.mm */; };
 		E393CC862CCA5E4700C2B4F0 /* TangemSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E393CC852CCA5E4700C2B4F0 /* TangemSdk.swift */; };
+		E393CC892CCA6A6300C2B4F0 /* TangemSdk in Frameworks */ = {isa = PBXBuildFile; productRef = E393CC882CCA6A6300C2B4F0 /* TangemSdk */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		E393CC812CCA58F400C2B4F0 /* RCTTangemSdk.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTTangemSdk.mm; sourceTree = "<group>"; };
 		E393CC842CCA5E4700C2B4F0 /* POC_Tangem_RN-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "POC_Tangem_RN-Bridging-Header.h"; sourceTree = "<group>"; };
 		E393CC852CCA5E4700C2B4F0 /* TangemSdk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TangemSdk.swift; sourceTree = "<group>"; };
+		E393CC8A2CCA6F7F00C2B4F0 /* POC_Tangem_RN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = POC_Tangem_RN.entitlements; path = POC_Tangem_RN/POC_Tangem_RN.entitlements; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -68,6 +70,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C80B921A6F3F58F76C31292 /* libPods-POC_Tangem_RN.a in Frameworks */,
+				E393CC892CCA6A6300C2B4F0 /* TangemSdk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +97,7 @@
 		13B07FAE1A68108700A75B9A /* POC_Tangem_RN */ = {
 			isa = PBXGroup;
 			children = (
+				E393CC8A2CCA6F7F00C2B4F0 /* POC_Tangem_RN.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -240,6 +244,9 @@
 				Base,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
+			packageReferences = (
+				E393CC872CCA6A6300C2B4F0 /* XCRemoteSwiftPackageReference "tangem-sdk-ios" */,
+			);
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -489,9 +496,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = POC_Tangem_RN/POC_Tangem_RN.entitlements;
+				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 62487PZJ4Q;
 				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = NO;
 				INFOPLIST_FILE = POC_Tangem_RN/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -506,9 +516,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = POC_Tangem_RN;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "NativeModules/POC_Tangem_RN-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -519,6 +534,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = POC_Tangem_RN/POC_Tangem_RN.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 62487PZJ4Q;
 				INFOPLIST_FILE = POC_Tangem_RN/Info.plist;
@@ -535,8 +551,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = POC_Tangem_RN;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "NativeModules/POC_Tangem_RN-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -718,6 +739,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E393CC872CCA6A6300C2B4F0 /* XCRemoteSwiftPackageReference "tangem-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/C0C41N/tangem-sdk-ios";
+			requirement = {
+				branch = release/codora;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E393CC882CCA6A6300C2B4F0 /* TangemSdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E393CC872CCA6A6300C2B4F0 /* XCRemoteSwiftPackageReference "tangem-sdk-ios" */;
+			productName = TangemSdk;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
 }

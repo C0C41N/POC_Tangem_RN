@@ -7,6 +7,9 @@
 
 #import "RCTTangemSdk.h"
 
+NSError *genericError = [NSError  errorWithDomain:@"TangemSdkError" code:999
+                                userInfo:@{NSLocalizedDescriptionKey: @"An error occurred"}];
+
 @implementation RCTTangemSdk
 
 - (instancetype)init {
@@ -26,8 +29,8 @@ RCT_EXPORT_MODULE(TangemSdk);
 - (void)scan:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject {
   [self.tangemSdk scanWithSuccess:^(NSString *result) {
     resolve(result);
-  } failure:^(NSError *error) {
-    reject(@"SCAN_FAILED", @"Scan failed", error);
+  } failure:^(NSString *error) {
+    reject(@"SCAN_FAILED", error, genericError);
   }];
 }
 

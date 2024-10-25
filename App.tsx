@@ -20,8 +20,12 @@ function App(): React.JSX.Element {
 
   const scanPressed = async () => {
     console.log('Before native call');
-    const result = await NativeTangemSdk.scan();
-    console.log('Result:', result);
+    try {
+      const result = await NativeTangemSdk.scan();
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
     console.log('After native call');
   };
 

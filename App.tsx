@@ -21,7 +21,7 @@ function App(): React.JSX.Element {
   const scanPressed = async () => {
     console.log('Before native call');
     try {
-      const result = await scan();
+      const result = await scan(undefined, '141414');
       console.log(result);
     } catch (error) {
       console.log(error);

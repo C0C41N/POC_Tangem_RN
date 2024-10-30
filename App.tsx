@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar, Button, View, ViewStyle} from 'react-native';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import NativeTangemSdk from './src/specs/NativeTangemSdk';
+import {scan} from 'tangem-sdk-codora-react-native';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -21,7 +21,7 @@ function App(): React.JSX.Element {
   const scanPressed = async () => {
     console.log('Before native call');
     try {
-      const result = await NativeTangemSdk.scan();
+      const result = await scan();
       console.log(result);
     } catch (error) {
       console.log(error);

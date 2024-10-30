@@ -15,9 +15,6 @@
 		2A2F31A89B85F08F306006B2 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		7699B88040F8A987B510C191 /* libPods-POC_Tangem_RN-POC_Tangem_RNTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-POC_Tangem_RN-POC_Tangem_RNTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		E393CC822CCA58F400C2B4F0 /* RCTTangemSdk.mm in Sources */ = {isa = PBXBuildFile; fileRef = E393CC812CCA58F400C2B4F0 /* RCTTangemSdk.mm */; };
-		E393CC862CCA5E4700C2B4F0 /* TangemSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E393CC852CCA5E4700C2B4F0 /* TangemSdk.swift */; };
-		E393CC892CCA6A6300C2B4F0 /* TangemSdk in Frameworks */ = {isa = PBXBuildFile; productRef = E393CC882CCA6A6300C2B4F0 /* TangemSdk */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,10 +45,6 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-POC_Tangem_RN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-POC_Tangem_RN.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = POC_Tangem_RN/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-POC_Tangem_RN-POC_Tangem_RNTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POC_Tangem_RN-POC_Tangem_RNTests.release.xcconfig"; path = "Target Support Files/Pods-POC_Tangem_RN-POC_Tangem_RNTests/Pods-POC_Tangem_RN-POC_Tangem_RNTests.release.xcconfig"; sourceTree = "<group>"; };
-		E393CC802CCA58F400C2B4F0 /* RCTTangemSdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTTangemSdk.h; sourceTree = "<group>"; };
-		E393CC812CCA58F400C2B4F0 /* RCTTangemSdk.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTTangemSdk.mm; sourceTree = "<group>"; };
-		E393CC842CCA5E4700C2B4F0 /* POC_Tangem_RN-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "POC_Tangem_RN-Bridging-Header.h"; sourceTree = "<group>"; };
-		E393CC852CCA5E4700C2B4F0 /* TangemSdk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TangemSdk.swift; sourceTree = "<group>"; };
 		E393CC8A2CCA6F7F00C2B4F0 /* POC_Tangem_RN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = POC_Tangem_RN.entitlements; path = POC_Tangem_RN/POC_Tangem_RN.entitlements; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -70,7 +63,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C80B921A6F3F58F76C31292 /* libPods-POC_Tangem_RN.a in Frameworks */,
-				E393CC892CCA6A6300C2B4F0 /* TangemSdk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,7 +121,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				E393CC7C2CCA536800C2B4F0 /* NativeModules */,
 				13B07FAE1A68108700A75B9A /* POC_Tangem_RN */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* POC_Tangem_RNTests */,
@@ -160,17 +151,6 @@
 				89C6BE57DB24E9ADA2F236DE /* Pods-POC_Tangem_RN-POC_Tangem_RNTests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		E393CC7C2CCA536800C2B4F0 /* NativeModules */ = {
-			isa = PBXGroup;
-			children = (
-				E393CC802CCA58F400C2B4F0 /* RCTTangemSdk.h */,
-				E393CC812CCA58F400C2B4F0 /* RCTTangemSdk.mm */,
-				E393CC852CCA5E4700C2B4F0 /* TangemSdk.swift */,
-				E393CC842CCA5E4700C2B4F0 /* POC_Tangem_RN-Bridging-Header.h */,
-			);
-			path = NativeModules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,9 +224,6 @@
 				Base,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
-			packageReferences = (
-				E393CC872CCA6A6300C2B4F0 /* XCRemoteSwiftPackageReference "tangem-sdk-ios" */,
-			);
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -421,9 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E393CC862CCA5E4700C2B4F0 /* TangemSdk.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
-				E393CC822CCA58F400C2B4F0 /* RCTTangemSdk.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,7 +606,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -700,7 +678,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -739,25 +720,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		E393CC872CCA6A6300C2B4F0 /* XCRemoteSwiftPackageReference "tangem-sdk-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/C0C41N/tangem-sdk-ios";
-			requirement = {
-				branch = release/codora;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		E393CC882CCA6A6300C2B4F0 /* TangemSdk */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E393CC872CCA6A6300C2B4F0 /* XCRemoteSwiftPackageReference "tangem-sdk-ios" */;
-			productName = TangemSdk;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
 }

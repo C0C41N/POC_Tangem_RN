@@ -9,14 +9,10 @@
     "start": "react-native start",
     "test": "jest"
   },
-  "codegenConfig": {
-    "name": "NativeModules",
-    "type": "modules",
-    "jsSrcsDir": "src/specs"
-  },
   "dependencies": {
     "react": "18.3.1",
-    "react-native": "0.76.0"
+    "react-native": "0.76.0",
+    "tangem-sdk-codora-react-native": "git://github.com/C0C41N/tangem-sdk-codora-react-native.git"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

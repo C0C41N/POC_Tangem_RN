@@ -7609,7 +7609,7 @@ __metadata:
     react: 18.3.1
     react-native: 0.76.0
     react-test-renderer: 18.3.1
-    tangem-sdk-codora-react-native: "git://github.com/C0C41N/tangem-sdk-codora-react-native.git#1e7cd5f9d23c6a9f38348801a989eaaf9be83207"
+    tangem-sdk-codora-react-native: "git://github.com/C0C41N/tangem-sdk-codora-react-native.git#09e52eb96ac9da117b3b6294091a5f726ecff345"
     typescript: 5.0.4
   languageName: unknown
   linkType: soft
@@ -8772,13 +8772,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tangem-sdk-codora-react-native@git://github.com/C0C41N/tangem-sdk-codora-react-native.git#1e7cd5f9d23c6a9f38348801a989eaaf9be83207":
+"tangem-sdk-codora-react-native@git://github.com/C0C41N/tangem-sdk-codora-react-native.git#09e52eb96ac9da117b3b6294091a5f726ecff345":
   version: 0.1.2
-  resolution: "tangem-sdk-codora-react-native@https://github.com/C0C41N/tangem-sdk-codora-react-native.git#commit=1e7cd5f9d23c6a9f38348801a989eaaf9be83207"
+  resolution: "tangem-sdk-codora-react-native@https://github.com/C0C41N/tangem-sdk-codora-react-native.git#commit=09e52eb96ac9da117b3b6294091a5f726ecff345"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 610085a8c30ef7a27c7f944adecf5a2123e17210417685ecc4c2c606d70fc8204956abdf182028962bf7ddeea025701e4e3dfada0248f270f1a0fc852d371749
+  checksum: ca0c8afa5e4309ab04e990633637725d5aead65610138baba1fe081f47fbf1a1479229004765f7946afde547f54375b63c70df4d7a806b963ac13a57e4540746
   languageName: node
   linkType: hard
 

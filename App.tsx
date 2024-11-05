@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar, Button, View, ViewStyle} from 'react-native';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {createAllWallets, purgeAllWallets, scan, sign} from 'tangem-sdk-codora-react-native';
+import {BackupService, createAllWallets, purgeAllWallets, resetBackup, scan, setAccessCode, sign} from 'tangem-sdk-codora-react-native';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -25,6 +25,7 @@ function App(): React.JSX.Element {
         msgBody: 'Please scan your card',
         accessCode: '141414',
       });
+      console.log(JSON.stringify(result.backupStatus, null, 2));
       console.log(JSON.stringify(result.wallets.map(e => ({curve: e.curve, publicKey: e.publicKeyBase58})), null, 2));
     } catch (error) {
       console.log(error);
@@ -80,6 +81,66 @@ function App(): React.JSX.Element {
     }
   };
 
+  const setAccessCodePressed = async () => {
+    try {
+      await setAccessCode({
+        accessCode: '000000',
+        newAccessCode: '141414',
+        msgHeader: 'Set Access Code',
+        msgBody: 'Please scan card to set access code',
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const backupPressed = async () => {
+    const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+    try {
+
+      const backupSvc = await BackupService.init();
+
+      console.log('After Init', JSON.stringify(backupSvc.currentState, null, 2));
+
+      await backupSvc.readPrimaryCard();
+
+      console.log('After Reading Primary Card', JSON.stringify(backupSvc.currentState, null, 2));
+
+      await wait(2000);
+
+      await backupSvc.setAccessCode('141414');
+
+      console.log('After Setting Access Code', JSON.stringify(backupSvc.currentState, null, 2));
+
+      await wait(2000);
+
+      await backupSvc.addBackupCard();
+
+      console.log('After Adding Backup Card', JSON.stringify(backupSvc.currentState, null, 2));
+
+      while (backupSvc.currentState.canProceed) {
+        await wait(2000);
+        await backupSvc.proceedBackup();
+        console.log('After Proceed Backup', JSON.stringify(backupSvc.currentState, null, 2));
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const resetBackupPressed = async () => {
+    try {
+      await resetBackup({
+        accessCode: '141414',
+        msgBody: 'Reset Backup',
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -91,6 +152,9 @@ function App(): React.JSX.Element {
         <Button title="Sign" onPress={() => signPressed()} />
         <Button title="PurgeAllWallets" onPress={() => purgeAllWalletsPressed()} />
         <Button title="CreateAllWallets" onPress={() => createAllWalletsPressed()} />
+        <Button title="SetAccessCode" onPress={() => setAccessCodePressed()} />
+        <Button title="Reset Backup" onPress={() => resetBackupPressed()} />
+        <Button title="Backup" onPress={() => backupPressed()} />
       </View>
     </SafeAreaView>
   );

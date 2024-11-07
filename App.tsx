@@ -14,8 +14,9 @@ function App(): React.JSX.Element {
 
   const containerStyle: ViewStyle = {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
+    flexDirection: 'column',
   };
 
   const scanPressed = async () => {

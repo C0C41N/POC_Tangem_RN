@@ -31,8 +31,8 @@ function App(): React.JSX.Element {
       console.log(JSON.stringify(result.backupStatus, null, 2));
       console.log(JSON.stringify(result.wallets.map(e => ({curve: e.curve, publicKey: e.publicKeyBase58})), null, 2));
 
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      console.log(error.message);
     }
   };
 
@@ -52,8 +52,8 @@ function App(): React.JSX.Element {
 
       console.log(result);
 
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      console.log(error.message);
     }
   };
 
@@ -71,8 +71,8 @@ function App(): React.JSX.Element {
         wallets: result.map(e => ({curve: e.curve, publicKey: e.publicKey})),
       }, null, 2));
 
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      console.log(error.message);
     }
   };
 
@@ -90,8 +90,8 @@ function App(): React.JSX.Element {
         wallets: result.map(e => ({curve: e.curve, publicKey: e.publicKey})),
       }, null, 2));
 
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      console.log(error.message);
     }
   };
 
@@ -105,8 +105,8 @@ function App(): React.JSX.Element {
         msgBody: 'Please scan card to set access code',
       });
 
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      console.log(error.message);
     }
   };
 
@@ -115,7 +115,7 @@ function App(): React.JSX.Element {
 
     try {
 
-      const backupSvc = await BackupService.init();
+      const backupSvc = await BackupService.getInstance();
 
       console.log('After Init', JSON.stringify(backupSvc.currentState, null, 2));
 
@@ -141,8 +141,8 @@ function App(): React.JSX.Element {
         console.log('After Proceed Backup', JSON.stringify(backupSvc.currentState, null, 2));
       }
 
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      console.log(error.message);
     }
   };
 
@@ -154,8 +154,8 @@ function App(): React.JSX.Element {
         msgBody: 'Reset Backup',
       });
 
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      console.log(error.message);
     }
   };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar, Button, View, ViewStyle} from 'react-native';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {BackupService, createAllWallets, purgeAllWallets, resetBackup, scan, setAccessCode, sign} from 'tangem-sdk-codora-react-native';
+import {BackupService, createAllWallets, generateMnemonic, purgeAllWallets, resetBackup, scan, setAccessCode, sign, BIP39WordCount} from 'tangem-sdk-codora-react-native';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -159,6 +159,17 @@ function App(): React.JSX.Element {
     }
   };
 
+  const genMnemonicPressed = async () => {
+    try {
+
+      const mnemonic = await generateMnemonic(BIP39WordCount.TWELVE);
+      console.log(mnemonic);
+
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -173,6 +184,7 @@ function App(): React.JSX.Element {
         <Button title="SetAccessCode" onPress={() => setAccessCodePressed()} />
         <Button title="Reset Backup" onPress={() => resetBackupPressed()} />
         <Button title="Backup" onPress={() => backupPressed()} />
+        <Button title="GenMnemonic" onPress={() => genMnemonicPressed()} />
       </View>
     </SafeAreaView>
   );

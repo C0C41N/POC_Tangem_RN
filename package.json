@@ -12,7 +12,7 @@
   "dependencies": {
     "react": "18.3.1",
     "react-native": "0.76.0",
-    "tangem-sdk-codora-react-native": "git://github.com/C0C41N/tangem-sdk-codora-react-native.git#2174d16eaf618ba73b99ce5393a9ca05ba8baa49"
+    "tangem-sdk-codora-react-native": "git://github.com/C0C41N/tangem-sdk-codora-react-native.git#54777ffb42e072d2b902c9b4fd5219bb2286c84c"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

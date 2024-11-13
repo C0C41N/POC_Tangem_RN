@@ -1,8 +1,13 @@
+import 'react-native-get-random-values';
 import React from 'react';
 import {SafeAreaView, StatusBar, Button, View, ViewStyle} from 'react-native';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {BackupService, createAllWallets, generateMnemonic, purgeAllWallets, resetBackup, scan, setAccessCode, sign, BIP39WordCount} from 'tangem-sdk-codora-react-native';
+import {generateMnemonic, scan, BIP39WordCount, signMultiple, Solana, Tron} from 'tangem-sdk-codora-react-native';
+
+import { install } from 'react-native-quick-crypto';
+
+install();
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -19,156 +24,85 @@ function App(): React.JSX.Element {
     flexDirection: 'column',
   };
 
-  const scanPressed = async () => {
-    try {
-
-      const result = await scan({
-        msgHeader: 'Scan Card',
-        msgBody: 'Please scan your card',
-        accessCode: '141414',
-      });
-
-      console.log(JSON.stringify(result.backupStatus, null, 2));
-      console.log(JSON.stringify(result.wallets.map(e => ({curve: e.curve, publicKey: e.publicKeyBase58})), null, 2));
-
-    } catch (error: any) {
-      console.log(error.message);
-    }
-  };
-
-  const signPressed = async () => {
-    try {
-
-      const unsignedHex = '01000103c6dadd07fa6b967f95c1c794207a6660b6c103bb3d9225cb65a32aec9233bd4a7851663184f478288effadd0b24e403c625569350166ae9dfc10e1eaf4a203b000000000000000000000000000000000000000000000000000000000000000003aab9ecdda6344c5dea7dc04242579a2171d7e0b7659ac1d16b20ab1f00ba77901020200010c020000001027000000000000';
-      const pubKeyBase58 = '2MfvVtqxsER27y7uCJmiVncoLPM7XFHeQ3oJWLwQRMdF';
-
-      const result = await sign({
-        pubKeyBase58,
-        unsignedHex,
-        accessCode: '141414',
-        msgHeader: 'Sign Transaction',
-        msgBody: 'Please scan card to sign the transaction',
-      });
-
-      console.log(result);
-
-    } catch (error: any) {
-      console.log(error.message);
-    }
-  };
-
-  const purgeAllWalletsPressed = async () => {
-    try {
-
-      const result = await purgeAllWallets({
-        accessCode: '141414',
-        msgHeader: 'Purge Wallets',
-        msgBody: 'Please scan card to purge all wallets',
-      });
-
-      console.log(JSON.stringify({
-        length: result.length,
-        wallets: result.map(e => ({curve: e.curve, publicKey: e.publicKey})),
-      }, null, 2));
-
-    } catch (error: any) {
-      console.log(error.message);
-    }
-  };
-
-  const createAllWalletsPressed = async () => {
-    try {
-
-      const result = await createAllWallets({
-        accessCode: '141414',
-        msgHeader: 'Create Wallets',
-        msgBody: 'Please scan card to create all wallets',
-      });
-
-      console.log(JSON.stringify({
-        length: result.length,
-        wallets: result.map(e => ({curve: e.curve, publicKey: e.publicKey})),
-      }, null, 2));
-
-    } catch (error: any) {
-      console.log(error.message);
-    }
-  };
-
-  const setAccessCodePressed = async () => {
-    try {
-
-      await setAccessCode({
-        accessCode: '000000',
-        newAccessCode: '141414',
-        msgHeader: 'Set Access Code',
-        msgBody: 'Please scan card to set access code',
-      });
-
-    } catch (error: any) {
-      console.log(error.message);
-    }
-  };
-
-  const backupPressed = async () => {
-    const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-
-    try {
-
-      const backupSvc = await BackupService.getInstance();
-
-      console.log('After Init', JSON.stringify(backupSvc.currentState, null, 2));
-
-      await backupSvc.readPrimaryCard();
-
-      console.log('After Reading Primary Card', JSON.stringify(backupSvc.currentState, null, 2));
-
-      await wait(2000);
-
-      await backupSvc.setAccessCode('141414');
-
-      console.log('After Setting Access Code', JSON.stringify(backupSvc.currentState, null, 2));
-
-      await wait(2000);
-
-      await backupSvc.addBackupCard();
-
-      console.log('After Adding Backup Card', JSON.stringify(backupSvc.currentState, null, 2));
-
-      while (backupSvc.currentState.canProceed) {
-        await wait(2000);
-        await backupSvc.proceedBackup();
-        console.log('After Proceed Backup', JSON.stringify(backupSvc.currentState, null, 2));
-      }
-
-    } catch (error: any) {
-      console.log(error.message);
-    }
-  };
-
-  const resetBackupPressed = async () => {
-    try {
-
-      await resetBackup({
-        accessCode: '141414',
-        msgBody: 'Reset Backup',
-      });
-
-    } catch (error: any) {
-      console.log(error.message);
-    }
-  };
-
   const genMnemonicPressed = async () => {
+    const mnemonic = await generateMnemonic(BIP39WordCount.TWENTY_FOUR);
+    console.log(mnemonic);
+  };
+
+  const scanPressed = async () => {
+    const card = await scan({
+      accessCode: '141414',
+    });
+
+    console.log(JSON.stringify(card, null, 2));
+  };
+
+  const signMultiplePressed = async () => {
     try {
 
-      const mnemonic = await generateMnemonic(BIP39WordCount.TWELVE);
-      console.log(mnemonic);
+      const solanaPubKey = 'EPFHi2vvpVeuuZU3TDXYxFfwEGxZhceL1h2tmia6wLgh';
+      const tronPubKey = '261tNC22med7Yn6pxp5iKfxUF231KXVtfjEYmsPbWqGjx';
 
-    } catch (error: any) {
-      console.log(error.message);
+      const solanaRecKey = '96fuzKSqE7tCYY3sm6SxfujhrRy5JpN3gkQqAWnsB8mm';
+      const tronRecKey = 'TMgJvQaXEPRjCbinHNeGogZLFGSjLpydjp';
+
+      const solana = new Solana(solanaPubKey);
+      const tron = new Tron(tronPubKey);
+
+      console.log(`Solana Address: ${solana.getPublicAddress()}`);
+      console.log(`Tron Address: ${tron.getPublicAddress()}`);
+
+      // console.log(solana)
+
+      const solanaTrx = await solana.createTransaction({
+        amount: 0.00001,
+        receiverAddress: solanaRecKey,
+      });
+
+      const tronTrx = await tron.createTransaction({
+        amount: 1,
+        receiverAddress: tronRecKey,
+      });
+
+      const signatures = await signMultiple({
+        accessCode: '141414',
+        signPayloads: [
+          {
+            pubKeyBase58: solanaPubKey,
+            unsignedHex: solanaTrx.unsignedHex,
+          },
+          {
+            pubKeyBase58: tronPubKey,
+            unsignedHex: tronTrx.unsignedHex,
+          },
+        ],
+      });
+
+      // const [solanaSig, TronSig] = signatures;
+
+      console.log(JSON.stringify(signatures, null, 2));
+
+      // const trxIds = await Promise.all([
+      //   solana.sendTransaction({
+      //     signedHex: solanaSig,
+      //     transaction: solanaTrx.transaction,
+      //   }),
+      //   tron.sendTransaction({
+      //     signedHex: TronSig,
+      //     transaction: tronTrx.transaction,
+      //   }),
+      // ]);
+
+      // console.log(JSON.stringify(trxIds, null, 2));
+
+
+    } catch (error) {
+      console.error(error);
     }
   };
+
+  // EPFHi2vvpVeuuZU3TDXYxFfwEGxZhceL1h2tmia6wLgh
+  // 261tNC22med7Yn6pxp5iKfxUF231KXVtfjEYmsPbWqGjx
 
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -178,12 +112,8 @@ function App(): React.JSX.Element {
       />
       <View style={containerStyle}>
         <Button title="Scan" onPress={() => scanPressed()} />
-        <Button title="Sign" onPress={() => signPressed()} />
-        <Button title="PurgeAllWallets" onPress={() => purgeAllWalletsPressed()} />
-        <Button title="CreateAllWallets" onPress={() => createAllWalletsPressed()} />
-        <Button title="SetAccessCode" onPress={() => setAccessCodePressed()} />
-        <Button title="Reset Backup" onPress={() => resetBackupPressed()} />
-        <Button title="Backup" onPress={() => backupPressed()} />
+        <Button title="SignMultiple" onPress={() => signMultiplePressed()} />
+        <Button title="SignMultiple" onPress={() => signMultiplePressed()} />
         <Button title="GenMnemonic" onPress={() => genMnemonicPressed()} />
       </View>
     </SafeAreaView>

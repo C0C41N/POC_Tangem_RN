@@ -10,9 +10,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "@craftzdog/react-native-buffer": "^6.0.5",
+    "babel-plugin-module-resolver": "^5.0.2",
     "react": "18.3.1",
     "react-native": "0.76.0",
-    "tangem-sdk-codora-react-native": "git://github.com/C0C41N/tangem-sdk-codora-react-native.git#a873b36dcc0f2b7983d0665bed59efdf2362f1fa"
+    "react-native-get-random-values": "^1.11.0",
+    "react-native-quick-crypto": "^0.7.6",
+    "tangem-sdk-codora-react-native": "git://github.com/C0C41N/tangem-sdk-codora-react-native.git#9d0e09fa8887e3da230141cc81eba9e3a76d976a"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

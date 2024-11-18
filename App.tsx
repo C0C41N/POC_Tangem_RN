@@ -3,7 +3,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar, Button, View, ViewStyle} from 'react-native';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {generateMnemonic, scan, BIP39WordCount, signMultiple, Solana, Tron} from 'tangem-sdk-codora-react-native';
+import {generateMnemonic, scan, BIP39WordCount, signMultiple, Ethereum} from 'tangem-sdk-codora-react-native';
 
 import { install } from 'react-native-quick-crypto';
 
@@ -40,60 +40,44 @@ function App(): React.JSX.Element {
   const signMultiplePressed = async () => {
     try {
 
-      const solanaPubKey = 'EPFHi2vvpVeuuZU3TDXYxFfwEGxZhceL1h2tmia6wLgh';
-      const tronPubKey = '261tNC22med7Yn6pxp5iKfxUF231KXVtfjEYmsPbWqGjx';
+      const arbiPubKey = '261tNC22med7Yn6pxp5iKfxUF231KXVtfjEYmsPbWqGjx';
+      const arbiRecKey = '0x5A32168d0b01C331d516e5AcE8CD016A1f54755E';
 
-      const solanaRecKey = '96fuzKSqE7tCYY3sm6SxfujhrRy5JpN3gkQqAWnsB8mm';
-      const tronRecKey = 'TMgJvQaXEPRjCbinHNeGogZLFGSjLpydjp';
+      const ARBITRUM = 42161;
 
-      const solana = new Solana(solanaPubKey);
-      const tron = new Tron(tronPubKey);
+      const ethereum = new Ethereum(arbiPubKey, 'https://rpc.ankr.com/arbitrum', ARBITRUM);
 
-      console.log(`Solana Address: ${solana.getPublicAddress()}`);
-      console.log(`Tron Address: ${tron.getPublicAddress()}`);
+      console.log(`Ethereum Address: ${ethereum.getPublicAddress()}`);
 
-      // console.log(solana)
-
-      const solanaTrx = await solana.createTransaction({
+      const arbiTrx = await ethereum.createTransaction({
         amount: 0.00001,
-        receiverAddress: solanaRecKey,
-      });
-
-      const tronTrx = await tron.createTransaction({
-        amount: 1,
-        receiverAddress: tronRecKey,
+        receiverAddress: arbiRecKey,
+        gasLimit: '0x089874',
+        maxFeePerGas: '0x989680',
       });
 
       const signatures = await signMultiple({
         accessCode: '141414',
         signPayloads: [
           {
-            pubKeyBase58: solanaPubKey,
-            unsignedHex: solanaTrx.unsignedHex,
-          },
-          {
-            pubKeyBase58: tronPubKey,
-            unsignedHex: tronTrx.unsignedHex,
+            pubKeyBase58: arbiPubKey,
+            unsignedHex: arbiTrx.unsignedHex,
           },
         ],
       });
 
-      // const [solanaSig, TronSig] = signatures;
+      const arbiSig = signatures[0].signedHex;
 
       console.log(JSON.stringify(signatures, null, 2));
 
-      // const trxIds = await Promise.all([
-      //   solana.sendTransaction({
-      //     signedHex: solanaSig,
-      //     transaction: solanaTrx.transaction,
-      //   }),
-      //   tron.sendTransaction({
-      //     signedHex: TronSig,
-      //     transaction: tronTrx.transaction,
-      //   }),
-      // ]);
+      const trxIds = await Promise.all([
+        ethereum.sendTransaction({
+          signedHex: arbiSig,
+          transaction: arbiTrx.transaction,
+        }),
+      ]);
 
-      // console.log(JSON.stringify(trxIds, null, 2));
+      console.log(JSON.stringify(trxIds, null, 2));
 
 
     } catch (error) {

@@ -5006,7 +5006,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ethers@npm:^6.13.1, ethers@npm:^6.13.4":
+"ethers@npm:^6.13.1":
   version: 6.13.4
   resolution: "ethers@npm:6.13.4"
   dependencies:
@@ -8312,7 +8312,7 @@ __metadata:
     react-native-get-random-values: ^1.11.0
     react-native-quick-crypto: ^0.7.6
     react-test-renderer: 18.3.1
-    tangem-sdk-codora-react-native: "git://github.com/C0C41N/tangem-sdk-codora-react-native.git#729075b882c950e0132a2ad995133024215fa9fa"
+    tangem-sdk-codora-react-native: "git://github.com/C0C41N/tangem-sdk-codora-react-native.git#a3d2443a8dbe68ac16b6a2ac0e9eb689a8b06c30"
     typescript: 5.0.4
   languageName: unknown
   linkType: soft
@@ -9577,21 +9577,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tangem-sdk-codora-react-native@git://github.com/C0C41N/tangem-sdk-codora-react-native.git#729075b882c950e0132a2ad995133024215fa9fa":
+"tangem-sdk-codora-react-native@git://github.com/C0C41N/tangem-sdk-codora-react-native.git#a3d2443a8dbe68ac16b6a2ac0e9eb689a8b06c30":
   version: 0.1.2
-  resolution: "tangem-sdk-codora-react-native@https://github.com/C0C41N/tangem-sdk-codora-react-native.git#commit=729075b882c950e0132a2ad995133024215fa9fa"
+  resolution: "tangem-sdk-codora-react-native@https://github.com/C0C41N/tangem-sdk-codora-react-native.git#commit=a3d2443a8dbe68ac16b6a2ac0e9eb689a8b06c30"
   dependencies:
     "@solana/web3.js": ^1.95.4
     "@types/node": 22.7.4
     bs58: ^6.0.0
     elliptic: ^6.6.0
-    ethers: ^6.13.4
     keccak: ^3.0.4
     tronweb: ^6.0.0
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: fcf67529b85c8d922663f92fc3a76fef8190dc52cb41713271be5fd48e55a4aecb5bbd7f3a757772f5720b6f1ba718c9c27031dc55019995ae8e4c8ae1b09cbe
+  checksum: 250824a5b6e90e6d7596698968d6381a4e76d0c7e901a7e7e1b5730190ededb818b2c394520ca8391c434fe26037ec877c36fb13991a894f889bbad246c2d743
   languageName: node
   linkType: hard
 

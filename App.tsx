@@ -3,7 +3,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar, Button, View, ViewStyle} from 'react-native';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {generateMnemonic, scan, BIP39WordCount, signMultiple, Ethereum} from 'tangem-sdk-codora-react-native';
+import {generateMnemonic, scan, BIP39WordCount, resolveAddresses, AddressSvcChain } from 'tangem-sdk-codora-react-native';
 
 import { install } from 'react-native-quick-crypto';
 
@@ -37,56 +37,28 @@ function App(): React.JSX.Element {
     console.log(JSON.stringify(card, null, 2));
   };
 
-  const signMultiplePressed = async () => {
-    try {
+  const addressSvcPressed = async () => {
 
-      const arbiPubKey = '261tNC22med7Yn6pxp5iKfxUF231KXVtfjEYmsPbWqGjx';
-      const arbiRecKey = '0x5A32168d0b01C331d516e5AcE8CD016A1f54755E';
+    const secp256k1 = '261tNC22med7Yn6pxp5iKfxUF231KXVtfjEYmsPbWqGjx';
+    const ed25519 = 'EPFHi2vvpVeuuZU3TDXYxFfwEGxZhceL1h2tmia6wLgh';
 
-      const ARBITRUM = 42161;
+    const resp = await resolveAddresses([
+      {
+        chain: AddressSvcChain.ETHEREUM,
+        pubKeyBase58: secp256k1,
+      },
+      {
+        chain: AddressSvcChain.TRON,
+        pubKeyBase58: secp256k1,
+      },
+      {
+        chain: AddressSvcChain.SOLANA,
+        pubKeyBase58: ed25519,
+      },
+    ]);
 
-      const ethereum = new Ethereum(arbiPubKey, 'https://rpc.ankr.com/arbitrum', ARBITRUM);
-
-      console.log(`Ethereum Address: ${ethereum.getPublicAddress()}`);
-
-      const arbiTrx = await ethereum.createTransaction({
-        amount: 0.00001,
-        receiverAddress: arbiRecKey,
-        gasLimit: '0x089874',
-        maxFeePerGas: '0x989680',
-      });
-
-      const signatures = await signMultiple({
-        accessCode: '141414',
-        signPayloads: [
-          {
-            pubKeyBase58: arbiPubKey,
-            unsignedHex: arbiTrx.unsignedHex,
-          },
-        ],
-      });
-
-      const arbiSig = signatures[0].signedHex;
-
-      console.log(JSON.stringify(signatures, null, 2));
-
-      const trxIds = await Promise.all([
-        ethereum.sendTransaction({
-          signedHex: arbiSig,
-          transaction: arbiTrx.transaction,
-        }),
-      ]);
-
-      console.log(JSON.stringify(trxIds, null, 2));
-
-
-    } catch (error) {
-      console.error(error);
-    }
+    console.log(JSON.stringify(resp, null, 2));
   };
-
-  // EPFHi2vvpVeuuZU3TDXYxFfwEGxZhceL1h2tmia6wLgh
-  // 261tNC22med7Yn6pxp5iKfxUF231KXVtfjEYmsPbWqGjx
 
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -96,8 +68,7 @@ function App(): React.JSX.Element {
       />
       <View style={containerStyle}>
         <Button title="Scan" onPress={() => scanPressed()} />
-        <Button title="SignMultiple" onPress={() => signMultiplePressed()} />
-        <Button title="SignMultiple" onPress={() => signMultiplePressed()} />
+        <Button title="AddressSvc" onPress={() => addressSvcPressed()} />
         <Button title="GenMnemonic" onPress={() => genMnemonicPressed()} />
       </View>
     </SafeAreaView>

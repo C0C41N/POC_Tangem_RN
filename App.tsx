@@ -3,7 +3,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar, Button, View, ViewStyle} from 'react-native';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {generateMnemonic, scan, BIP39WordCount, resolveAddresses, AddressSvcChain } from 'tangem-sdk-codora-react-native';
+import {generateMnemonic, scan, BIP39WordCount, resolveAddresses, AddressServiceChain } from 'tangem-sdk-codora-react-native';
 
 import { install } from 'react-native-quick-crypto';
 
@@ -44,15 +44,15 @@ function App(): React.JSX.Element {
 
     const resp = await resolveAddresses([
       {
-        chain: AddressSvcChain.ETHEREUM,
+        chain: AddressServiceChain.ETHEREUM,
         pubKeyBase58: secp256k1,
       },
       {
-        chain: AddressSvcChain.TRON,
+        chain: AddressServiceChain.TRON,
         pubKeyBase58: secp256k1,
       },
       {
-        chain: AddressSvcChain.SOLANA,
+        chain: AddressServiceChain.SOLANA,
         pubKeyBase58: ed25519,
       },
     ]);

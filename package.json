@@ -16,7 +16,7 @@
     "react-native": "0.76.0",
     "react-native-get-random-values": "^1.11.0",
     "react-native-quick-crypto": "^0.7.6",
-    "tangem-sdk-codora-react-native": "git://github.com/C0C41N/tangem-sdk-codora-react-native.git#a3d2443a8dbe68ac16b6a2ac0e9eb689a8b06c30"
+    "tangem-sdk-codora-react-native": "git://github.com/C0C41N/tangem-sdk-codora-react-native.git#5a1ee8167486e874c2dff90ef5562e9c8f22a600"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

@@ -25,7 +25,7 @@ function App(): React.JSX.Element {
   };
 
   const genMnemonicPressed = async () => {
-    const mnemonic = await generateMnemonic(BIP39WordCount.TWENTY_FOUR);
+    const mnemonic = await generateMnemonic(BIP39WordCount.TWELVE);
     console.log(mnemonic);
   };
 

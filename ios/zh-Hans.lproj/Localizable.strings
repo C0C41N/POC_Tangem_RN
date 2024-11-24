@@ -1,0 +1,77 @@
+/* 
+  Localizable.strings
+  DAU_Wallet
+
+  Created by Ateeq ur Rehman on 12/06/2024.
+  
+*/
+"attestation_failed_card" = "该卡可能是生产样品或伪造品。您可以继续，风险自负。";
+"attestation_failed_dev_card" = "这是一张开发卡，真实性无法验证。此卡无法作为付款方式。";
+"attestation_online_failed_body" = "目前，该卡无法进行在线认证。您可以自行承担风险或稍后重试。";
+"attestation_online_failed_title" = "在线认证失败";
+"attestation_warning_attest_wallets" = "已检测到卡上钱包有可疑使用。";
+"backup_add_backup_card_message" = "请完全按照以上提示，连接您的手机和要用作备份的卡片。";
+"backup_finalize_backup_card_message_format" = "如上显示，将号码为%@ 的卡轻触您的手机NFC感应区。";
+"backup_finalize_primary_card_message_format" = "请完全按照以上提示，连接您的手机和号码为 %@ 的主卡。";
+"backup_prepare_primary_card_message" = "请完全按照以上提示，连接您的手机和主卡。";
+"backup_prepare_primary_card_message_format" = "请完全按照以上提示，连接您的手机和号码为%@ 的主卡。";
+"cid_format" = "卡片 ＃％@";
+"common_cancel" = "取消";
+"common_continue" = "继续";
+"common_error" = "错误";
+"common_ok" = "好的";
+"common_retry" = "重试";
+"common_success" = "成功";
+"common_understand" = "我了解";
+"common_warning" = "警告";
+"error_already_created" = "钱包已创建";
+"error_backup_card_already_added" = "该卡片已添加到列表中";
+"error_backup_failed_already_created" = "该卡片已经包含了钱包，因此不能作为备用卡使用。如果要将其作为备用卡，您可以选择进行恢复出厂设置。在进行恢复之前，请确保该卡片上没有存储任何资金。您可以通过在应用中扫描该卡片来验证其是否存有资金。";
+"error_backup_not_empty_wallets" = "这张卡已经有一个钱包了。如果您想继续，您必须先将其重置为出厂设置。";
+"error_backup_wrong_card" = "该卡不能用作备用卡。";
+"error_card_verification_failed" = "卡片验证失败";
+"error_file_not_found" = "文件未找到";
+"error_no_active_backup" = "所选卡无法用于重置访问码，因为该卡上没有备份。请联系支持团队。";
+"error_old_card" = "由于 iOS 限制，2019 年 9 月之前发行的DAU Key卡无法使用 iPhone 签署数据";
+"error_pin_cannot_be_changed_format" = "访问码 不能更改";
+"error_pin_cannot_be_default_format" = "访问码 不能改为此值。请输入另一项。";
+"error_pin_required_format" = "访问码 为必填选项";
+"error_pin_too_short_format" = "%1$@ 必须至少含有 %2$li 个字符";
+"error_purge_prohibited" = "钱包无法删除";
+"error_reset_wrong_card" = "该卡不能用于访问码重置";
+"error_user_cancelled" = "用户取消了操作";
+"error_user_code_recovery_disabled" = "无法使用此卡重置访问码";
+"error_wrong_card_number_with_card_id" = "您扫描了不同的卡。请扫描卡%@。";
+"error_wrong_card_number_without_card_id" = "您扫描了不同的卡。";
+"error_wrong_card_type" = "此应用程序不适用于此卡或需要更新";
+"error_wrong_pin_format" = "错误 访问码";
+"generic_error_code" = "操作过程中发生错误。代码： ％@。";
+"issuer_signature_loading_failed" = "无法加载卡片证书。请稍后再试。";
+"nfc_alert_default_done" = "完毕";
+"nfc_session_timeout" = "操作未完成。请再次轻触该卡片以完成操作";
+"nfc_stuck_error" = "您的 iPhone 无法正常使用 NFC。请尝试重新启动手机。";
+"pin1" = "访问码";
+"pin2" = "密码";
+"pin_change_new_code_format" = "新的 访问码";
+"pin_confirm_error_format" = "代码不匹配";
+"pin_enter" = "输入 访问码";
+"pin_reset_code_format" = "重置 访问码";
+"pin_set_code_confirm_format" = "确认 访问码";
+"pin_set_code_format" = "设置 访问码";
+"reset_codes_btn_forgot_your_code" = "忘记访问码？";
+"reset_codes_current_card" = "当前卡";
+"reset_codes_linked_card" = "已绑定的卡";
+"reset_codes_message_body_backup" = "轻触已绑定的卡";
+"reset_codes_message_body_restore" = "首先，准备好将被用于重置过程的卡片";
+"reset_codes_message_body_restore_final" = "再次扫描您想要重置访问码的卡片";
+"reset_codes_message_title_backup" = "扫描备用卡";
+"reset_codes_message_title_restore" = "扫描您要重置的卡片";
+"reset_codes_scan_confirmation_card" = "扫描另一张绑定的卡片";
+"reset_codes_scan_first_card" = "扫描您想要重置 %@ 的卡";
+"reset_codes_scan_to_reset" = "扫描卡片重置用户密码";
+"reset_codes_success_message" = "用户密码重置成功";
+"sign_multiple_chunks_part" = "签署 %2$li 的第 %1$li 部分";
+"touch_id_localized_reason" = "使用 Touch ID 在应用程序中保存访问码";
+"view_delegate_scan_description" = "如上所示，将卡片贴住接触手机直到操作结束";
+"view_delegate_security_delay_description" = "为确保安全，请将卡片贴住接触手机直到操作结束";
+"wallet_not_found" = "看起来您用错了卡片。此卡无法执行该操作。";

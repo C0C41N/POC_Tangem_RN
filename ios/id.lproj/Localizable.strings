@@ -1,0 +1,77 @@
+/* 
+  Localizable.strings
+  DAU_Wallet
+
+  Created by Ateeq ur Rehman on 12/06/2024.
+  
+*/
+"attestation_failed_card" = "Kartu ini mungkin sampel produksi atau palsu. Anda dapat melanjutkan dengan risiko Anda sendiri.";
+"attestation_failed_dev_card" = "Ini adalah kartu pengembangan. Keasliannya tidak dapat diverifikasi. Jangan menerima kartu ini sebagai alat pembayaran.";
+"attestation_online_failed_body" = "Saat ini, pengesahan kartu secara online tidak dapat dilakukan. Anda dapat melanjutkan dengan risiko Anda sendiri atau mencoba lagi nanti.";
+"attestation_online_failed_title" = "Pengesahan online gagal";
+"attestation_warning_attest_wallets" = "Penggunaan dompet yang mencurigakan pada kartu telah terdeteksi.";
+"backup_add_backup_card_message" = "Hubungkan ponsel Anda dan kartu yang ingin Anda gunakan sebagai cadangan seperti yang ditunjukkan di atas.";
+"backup_finalize_backup_card_message_format" = "Ketuk kartu dengan nomor %@ ke ponsel Anda persis seperti yang ditunjukkan di atas.";
+"backup_finalize_primary_card_message_format" = "Hubungkan ponsel dan kartu utama dengan nomor %@ seperti yang ditunjukkan di atas.";
+"backup_prepare_primary_card_message" = "Hubungkan ponsel dan kartu utama seperti yang ditunjukkan di atas.";
+"backup_prepare_primary_card_message_format" = "Hubungkan ponsel dan kartu utama dengan nomor %@ seperti yang ditunjukkan di atas.";
+"cid_format" = "Kartu #%@";
+"common_cancel" = "Membatalkan";
+"common_continue" = "Melanjutkan";
+"common_error" = "Kesalahan";
+"common_ok" = "OK";
+"common_retry" = "Mengulangi";
+"common_success" = "Berhasil";
+"common_understand" = "Saya mengerti";
+"common_warning" = "Peringatan";
+"error_already_created" = "Dompet telah dibuat";
+"error_backup_card_already_added" = "Kartu ini telah ditambahkan ke dalam daftar";
+"error_backup_failed_already_created" = "Kartu ini tidak bisa dijadikan cadangan karena sudah berisi dompet. Pastikan tidak ada dana yang tersimpan di kartu dengan memindainya di aplikasi. Kemudian, atur ulang ke pengaturan pabrik.";
+"error_backup_not_empty_wallets" = "Kartu ini sudah memiliki dompet. Jika Anda ingin melanjutkan, Anda harus mengatur ulang ke pengaturan pabrik terlebih dahulu.";
+"error_backup_wrong_card" = "Kartu ini tidak dapat digunakan sebagai kartu cadangan. Kode kesalahan: %@.";
+"error_card_verification_failed" = "Verifikasi kartu gagal";
+"error_file_not_found" = "File tidak ditemukan";
+"error_no_active_backup" = "Kartu yang dipilih tidak dapat digunakan untuk mengatur ulang kode akses kartu, karena tidak ada cadangan di dalamnya. Silakan hubungi tim dukungan.";
+"error_old_card" = "Kartu Tangem yang dikeluarkan sebelum September 2019 tidak dapat menandatangani data menggunakan iPhone karena pembatasan iOS";
+"error_pin_cannot_be_changed_format" = "%@ tidak dapat diubah";
+"error_pin_cannot_be_default_format" = "%@ tidak dapat diubah ke nilai ini. Silakan masukkan nilai yang lain.";
+"error_pin_required_format" = "%@ diperlukan";
+"error_pin_too_short_format" = "%1$@ harus setidaknya %2$li karakter";
+"error_purge_prohibited" = "Dompet tidak dapat dihapus";
+"error_reset_wrong_card" = "Kartu ini tidak dapat digunakan untuk pemulihan kode. Kesalahan kode: %@.";
+"error_user_cancelled" = "Pengguna membatalkan operasi";
+"error_user_code_recovery_disabled" = "Tidak dapat mengatur ulang kode akses menggunakan kartu ini";
+"error_wrong_card_number_with_card_id" = "Anda mengetuk kartu yang berbeda. Silakan ketuk kartu %@.";
+"error_wrong_card_number_without_card_id" = "Anda mengetuk kartu yang berbeda";
+"error_wrong_card_type" = "Aplikasi ini tidak dirancang untuk bekerja dengan kartu ini atau perlu diperbarui";
+"error_wrong_pin_format" = "%@ salah";
+"generic_error_code" = "Terjadi kesalahan selama operasi. Kode: %@.";
+"issuer_signature_loading_failed" = "Tidak dapat memuat sertifikat kartu. Silakan coba lagi nanti.";
+"nfc_alert_default_done" = "Selesai";
+"nfc_session_timeout" = "Proses tidak lengkap. Untuk menyelesaikan operasi, silakan ketuk kartu lagi";
+"nfc_stuck_error" = "Tampaknya NFC tidak berfungsi dengan baik di iPhone Anda. Coba reboot ponsel Anda.";
+"pin1" = "Kode akses";
+"pin2" = "Kode sandi";
+"pin_change_new_code_format" = "Baru %@";
+"pin_confirm_error_format" = "Kode tidak cocok";
+"pin_enter" = "Masukkan %@";
+"pin_reset_code_format" = "Setel ulang %@";
+"pin_set_code_confirm_format" = "Konfirmasi %@";
+"pin_set_code_format" = "Tetapkan %@";
+"reset_codes_btn_forgot_your_code" = "Lupa kode Anda?";
+"reset_codes_current_card" = "Kartu saat ini";
+"reset_codes_linked_card" = "Kartu yang terhubung";
+"reset_codes_message_body_backup" = "Ketuk kartu yang dihubungkan";
+"reset_codes_message_body_restore" = "Pertama, siapkan kartu untuk proses pemulihan";
+"reset_codes_message_body_restore_final" = "Ketuk lagi kartu tempat Anda ingin memulihkan kode akses";
+"reset_codes_message_title_backup" = "Ketuk kartu cadangan";
+"reset_codes_message_title_restore" = "Ketuk kartu yang ingin dipulihkan";
+"reset_codes_scan_confirmation_card" = "Pindai kartu lain yang dihubungkan";
+"reset_codes_scan_first_card" = "Pindai kartu tempat Anda ingin mengatur ulang %@";
+"reset_codes_scan_to_reset" = "Pindai kartu untuk mengatur ulang kode pengguna";
+"reset_codes_success_message" = "Kode berhasil disetel ulang";
+"sign_multiple_chunks_part" = "Bagian penandatanganan%1$li dari%2$li";
+"touch_id_localized_reason" = "Menggunakan Touch ID untuk menyimpan kode akses di app";
+"view_delegate_scan_description" = "Ketuk kartu seperti yang ditunjukkan di atas dan tahan hingga akhir operasi";
+"view_delegate_security_delay_description" = "Untuk memastikan keamanan, harap pegang kartu hingga operasi selesai";
+"wallet_not_found" = "Sepertinya Anda mendapatkan kartu yang tidak sesuai. Operasi tidak dapat dilakukan dengan kartu ini.";

@@ -3,7 +3,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar, Button, View, ViewStyle} from 'react-native';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {generateMnemonic, scan, BIP39WordCount, resolveAddresses, AddressServiceChain } from 'tangem-sdk-codora-react-native';
+import {generateMnemonic, scan, BIP39WordCount, resolveAddresses, AddressServiceChain, setAppLanguage, LanguageCodes } from 'tangem-sdk-codora-react-native';
 
 import { install } from 'react-native-quick-crypto';
 
@@ -60,6 +60,11 @@ function App(): React.JSX.Element {
     console.log(JSON.stringify(resp, null, 2));
   };
 
+  const setAppLanguagePressed = async () => {
+    const resp = await setAppLanguage(LanguageCodes.Chinese);
+    console.log(resp);
+  };
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -70,6 +75,7 @@ function App(): React.JSX.Element {
         <Button title="Scan" onPress={() => scanPressed()} />
         <Button title="AddressSvc" onPress={() => addressSvcPressed()} />
         <Button title="GenMnemonic" onPress={() => genMnemonicPressed()} />
+        <Button title="Locale" onPress={() => setAppLanguagePressed()} />
       </View>
     </SafeAreaView>
   );

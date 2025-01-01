@@ -3,7 +3,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar, Button, View, ViewStyle} from 'react-native';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {generateMnemonic, scan, BIP39WordCount, resolveAddresses, AddressServiceChain, setAppLanguage, LanguageCodes } from 'tangem-sdk-codora-react-native';
+import {scan, createAllWallets, purgeAllWallets } from 'tangem-sdk-codora-react-native';
 
 import { install } from 'react-native-quick-crypto';
 
@@ -24,11 +24,6 @@ function App(): React.JSX.Element {
     flexDirection: 'column',
   };
 
-  const genMnemonicPressed = async () => {
-    const mnemonic = await generateMnemonic(BIP39WordCount.TWELVE);
-    console.log(mnemonic);
-  };
-
   const scanPressed = async () => {
     const card = await scan({
       accessCode: '141414',
@@ -37,31 +32,13 @@ function App(): React.JSX.Element {
     console.log(JSON.stringify(card, null, 2));
   };
 
-  const addressSvcPressed = async () => {
-
-    const secp256k1 = '261tNC22med7Yn6pxp5iKfxUF231KXVtfjEYmsPbWqGjx';
-    const ed25519 = 'EPFHi2vvpVeuuZU3TDXYxFfwEGxZhceL1h2tmia6wLgh';
-
-    const resp = await resolveAddresses([
-      {
-        chain: AddressServiceChain.ETHEREUM,
-        pubKeyBase58: secp256k1,
-      },
-      {
-        chain: AddressServiceChain.TRON,
-        pubKeyBase58: secp256k1,
-      },
-      {
-        chain: AddressServiceChain.SOLANA,
-        pubKeyBase58: ed25519,
-      },
-    ]);
-
-    console.log(JSON.stringify(resp, null, 2));
+  const createAllWalletsPressed = async () => {
+    const resp = await createAllWallets({});
+    console.log(resp);
   };
 
-  const setAppLanguagePressed = async () => {
-    const resp = await setAppLanguage(LanguageCodes.Chinese);
+  const purgeAllWalletsPressed = async () => {
+    const resp = await purgeAllWallets({});
     console.log(resp);
   };
 
@@ -73,9 +50,8 @@ function App(): React.JSX.Element {
       />
       <View style={containerStyle}>
         <Button title="Scan" onPress={() => scanPressed()} />
-        <Button title="AddressSvc" onPress={() => addressSvcPressed()} />
-        <Button title="GenMnemonic" onPress={() => genMnemonicPressed()} />
-        <Button title="Locale" onPress={() => setAppLanguagePressed()} />
+        <Button title="CreateAllWallets" onPress={() => createAllWalletsPressed()} />
+        <Button title="PurgeAllWallets" onPress={() => purgeAllWalletsPressed()} />
       </View>
     </SafeAreaView>
   );

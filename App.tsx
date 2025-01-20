@@ -25,9 +25,7 @@ function App(): React.JSX.Element {
   };
 
   const scanPressed = async () => {
-    const card = await scan({
-      accessCode: '141414',
-    });
+    const card = await scan({});
 
     console.log(JSON.stringify(card, null, 2));
   };

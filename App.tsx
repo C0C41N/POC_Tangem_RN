@@ -3,7 +3,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar, Button, View, ViewStyle} from 'react-native';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {scan, createAllWallets, purgeAllWallets } from 'tangem-sdk-codora-react-native';
+import {scan, createAllWallets, purgeAllWallets, resetCard } from 'tangem-sdk-codora-react-native';
 
 import { install } from 'react-native-quick-crypto';
 
@@ -42,6 +42,11 @@ function App(): React.JSX.Element {
     console.log(resp);
   };
 
+  const resetCardPressed = async () => {
+    const resp = await resetCard({});
+    console.log(resp);
+  };
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -52,6 +57,7 @@ function App(): React.JSX.Element {
         <Button title="Scan" onPress={() => scanPressed()} />
         <Button title="CreateAllWallets" onPress={() => createAllWalletsPressed()} />
         <Button title="PurgeAllWallets" onPress={() => purgeAllWalletsPressed()} />
+        <Button title="ResetCard" onPress={() => resetCardPressed()} />
       </View>
     </SafeAreaView>
   );

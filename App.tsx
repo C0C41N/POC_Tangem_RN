@@ -3,7 +3,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar, Button, View, ViewStyle} from 'react-native';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {scan, createAllWallets, purgeAllWallets, resetCard } from 'tangem-sdk-codora-react-native';
+import {scan, createAllWallets, purgeAllWallets, resetCard, signMultiple } from 'tangem-sdk-codora-react-native';
 
 import { install } from 'react-native-quick-crypto';
 
@@ -45,6 +45,17 @@ function App(): React.JSX.Element {
     console.log(resp);
   };
 
+  const signPressed = async () => {
+    const resp = await signMultiple({
+      signPayloads: [{
+        pubKeyBase58: '2935LwRPAuT7xsMnibfDirrtb3dD3X5WNrRDS6FeWNbVA',
+        unsignedHex: '5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9',
+      }],
+      accessCode: '141414',
+    });
+    console.log(resp);
+  };
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -53,6 +64,7 @@ function App(): React.JSX.Element {
       />
       <View style={containerStyle}>
         <Button title="Scan" onPress={() => scanPressed()} />
+        <Button title="Sign" onPress={() => signPressed()} />
         <Button title="CreateAllWallets" onPress={() => createAllWalletsPressed()} />
         <Button title="PurgeAllWallets" onPress={() => purgeAllWalletsPressed()} />
         <Button title="ResetCard" onPress={() => resetCardPressed()} />

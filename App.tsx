@@ -24,10 +24,14 @@ function App(): React.JSX.Element {
     flexDirection: 'column',
   };
 
-  const scanPressed = async () => {
-    const card = await scan({});
+  const scanPressed = async (migrate?: boolean) => {
+    const card = await scan({ accessCode: '141414', migrate });
 
-    console.log(JSON.stringify(card, null, 2));
+    card.data?.wallets.map(wallet => {
+      const curve = wallet.curve;
+      const pubKey = wallet.publicKeyBase58;
+      console.log(`Wallet | ${curve} | ${pubKey}`);
+    });
   };
 
   const createAllWalletsPressed = async () => {
@@ -35,8 +39,8 @@ function App(): React.JSX.Element {
     console.log(resp);
   };
 
-  const purgeAllWalletsPressed = async () => {
-    const resp = await purgeAllWallets({});
+  const purgeAllWalletsPressed = async (onlyEd25519?: boolean) => {
+    const resp = await purgeAllWallets({ accessCode: '141414', onlyEd25519 });
     console.log(resp);
   };
 
@@ -64,9 +68,10 @@ function App(): React.JSX.Element {
       />
       <View style={containerStyle}>
         <Button title="Scan" onPress={() => scanPressed()} />
+        <Button title="Scan (Migrate)" onPress={() => scanPressed(true)} />
         <Button title="Sign" onPress={() => signPressed()} />
         <Button title="CreateAllWallets" onPress={() => createAllWalletsPressed()} />
-        <Button title="PurgeAllWallets" onPress={() => purgeAllWalletsPressed()} />
+        <Button title="PurgeEd25519" onPress={() => purgeAllWalletsPressed(true)} />
         <Button title="ResetCard" onPress={() => resetCardPressed()} />
       </View>
     </SafeAreaView>

@@ -25,15 +25,24 @@ function App(): React.JSX.Element {
   };
 
   const scanPressed = async (migrate?: boolean) => {
-    const card = await scan({ accessCode: '141414', migrate });
+    const migratePublicKey = migrate ? '03D52B690738C0F0EDD4A30E2C11021826DE2A1E7941393BC815E8BE1764EEFA61' : undefined;
+    const scanResult = await scan({ accessCode: '141414', migratePublicKey });
 
-    card.data?.wallets.map(wallet => {
+    if (!scanResult.success) {
+      console.log(scanResult.message);
+      return;
+    }
+
+    const card = scanResult.data!;
+
+    card.wallets.map(wallet => {
       const curve = wallet.curve;
-      const pubKey = wallet.publicKeyBase58;
-      console.log(`Wallet | ${curve} | ${pubKey}`);
+      const pubKey58 = wallet.publicKeyBase58;
+      const pubKeyHex = wallet.publicKey;
+      console.log(`Wallet | ${curve} | ${pubKey58} | ${pubKeyHex}`);
     });
 
-    const isUserCodeRecoveryAllowed = card.data?.userSettings.isUserCodeRecoveryAllowed;
+    const isUserCodeRecoveryAllowed = card.userSettings.isUserCodeRecoveryAllowed;
     console.log({ isUserCodeRecoveryAllowed });
   };
 

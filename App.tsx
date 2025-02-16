@@ -53,6 +53,7 @@ function App(): React.JSX.Element {
 
   const validateMnemonicPressed = async () => {
     const mnemonic = ['super', 'turtle', 'music', 'prize', 'civil', 'state', 'oxygen', 'urban', 'tank', 'valley', 'labor', 'pet'];
+    // const mnemonic = ['super', 'turtle', 'music', 'prize', 'civil', 'state', 'oxygen', 'urban', 'tank', 'valley', 'pet', 'labor'];
     const resp = await validateMnemonic(mnemonic);
     console.log(resp);
   };

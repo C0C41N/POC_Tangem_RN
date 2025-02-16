@@ -8312,7 +8312,7 @@ __metadata:
     react-native-get-random-values: ^1.11.0
     react-native-quick-crypto: ^0.7.6
     react-test-renderer: 18.3.1
-    tangem-sdk-codora-react-native: "git://github.com/DAU-Vault/Dau-Key-RN-SDK#e3b7f7127b92b89a51f6c425b13ceff72bc05dbd"
+    tangem-sdk-codora-react-native: "git://github.com/DAU-Vault/Dau-Key-RN-SDK#9e3fb3d25ac5c51424998d0cb81ef19a21e357f7"
     typescript: 5.0.4
   languageName: unknown
   linkType: soft
@@ -9577,9 +9577,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tangem-sdk-codora-react-native@git://github.com/DAU-Vault/Dau-Key-RN-SDK#e3b7f7127b92b89a51f6c425b13ceff72bc05dbd":
+"tangem-sdk-codora-react-native@git://github.com/DAU-Vault/Dau-Key-RN-SDK#9e3fb3d25ac5c51424998d0cb81ef19a21e357f7":
   version: 0.1.2
-  resolution: "tangem-sdk-codora-react-native@https://github.com/DAU-Vault/Dau-Key-RN-SDK.git#commit=e3b7f7127b92b89a51f6c425b13ceff72bc05dbd"
+  resolution: "tangem-sdk-codora-react-native@https://github.com/DAU-Vault/Dau-Key-RN-SDK.git#commit=9e3fb3d25ac5c51424998d0cb81ef19a21e357f7"
   dependencies:
     "@solana/web3.js": ^1.95.4
     "@types/node": 22.7.4
@@ -9590,7 +9590,7 @@ __metadata:
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: e5a707cbca2f365b4d380958b632230b21a37497eeef6bace5c0f68ce0be0ceecab6d0cde2cef839a33b42e8d5e59d94acf6f4d256251fe53dc30c573dabf0eb
+  checksum: 6c3b7c7b8ad1d0ea14006f37931858378fac545b3f966c430d3899d701e000cfd9090d354d7bedbc7e1e8f3a44b83560edb193f99bf85a2683007e3b8f8c2dc8
   languageName: node
   linkType: hard
 

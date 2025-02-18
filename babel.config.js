@@ -7,6 +7,7 @@ module.exports = {
         alias: {
           'crypto': 'react-native-quick-crypto',
           'buffer': '@craftzdog/react-native-buffer',
+          'node:buffer': '@craftzdog/react-native-buffer',
         },
       },
     ],

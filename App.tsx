@@ -3,9 +3,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar, Button, View, ViewStyle} from 'react-native';
 import {useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {scan, purgeAllWallets, validateMnemonic, enableUserCodeRecovery, signMultiple, sign } from 'tangem-sdk-codora-react-native';
-
-import {hash} from 'crypto';
+import {scan, purgeAllWallets, validateMnemonic, enableUserCodeRecovery, signMultiple} from 'tangem-sdk-codora-react-native';
 
 import { install } from 'react-native-quick-crypto';
 

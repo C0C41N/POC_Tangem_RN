@@ -34,7 +34,7 @@ function App(): React.JSX.Element {
       return;
     }
 
-    const card = scanResult.data!;
+    const {card, migrateStatus} = scanResult.data!;
 
     card.wallets.map(wallet => {
       const curve = wallet.curve;
@@ -44,7 +44,7 @@ function App(): React.JSX.Element {
     });
 
     const cardId = card.cardId;
-    console.log({ cardId });
+    console.log({ cardId, migrateStatus });
   };
 
   const purgeAllWalletsPressed = async (onlyEd25519?: boolean) => {

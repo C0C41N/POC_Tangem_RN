@@ -16,7 +16,7 @@
     "react-native": "0.76.0",
     "react-native-get-random-values": "^1.11.0",
     "react-native-quick-crypto": "^0.7.6",
-    "tangem-sdk-codora-react-native": "git://github.com/DAU-Vault/Dau-Key-RN-SDK#4f39351710c6c4a41a6f6de60cbbe3c3d76c47f4"
+    "tangem-sdk-codora-react-native": "git://github.com/DAU-Vault/Dau-Key-RN-SDK#bb2ee4d4d172ea4e2e848f909ec80d00765c3be9"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

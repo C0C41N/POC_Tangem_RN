@@ -13,10 +13,10 @@
     "@craftzdog/react-native-buffer": "^6.0.5",
     "babel-plugin-module-resolver": "^5.0.2",
     "react": "18.3.1",
-    "react-native": "0.76.0",
+    "react-native": "0.76.9",
     "react-native-get-random-values": "^1.11.0",
     "react-native-quick-crypto": "^0.7.6",
-    "tangem-sdk-codora-react-native": "git://github.com/DAU-Vault/Dau-Key-RN-SDK#bb2ee4d4d172ea4e2e848f909ec80d00765c3be9"
+    "tangem-sdk-codora-react-native": "git://github.com/DAU-Vault/Dau-Key-RN-SDK#5b8148b84c6c7ebc3e0fa031a36dd940276af244"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
